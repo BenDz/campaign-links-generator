@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <script data-require="jquery@*" data-semver="3.0.0" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+  </head>
+
+  <body>
+    <form class="form-horizontal" id="campaign-generator">
+      <fieldset>
+        <legend>Campaign links generator <img style="height:20px;float:right" src="http://developers.atinternet-solutions.com/wp-content/themes/ATDocumentation/img/logo_at_blue.svg"></legend>
+        <div class="form-group">
+          <span class="col-md-4 control-label">Site information</span>
+          <div class="col-md-6">
+              <div class="form-inline">
+                  <select id="siteHttp" name="siteHttp" class="form-control">
+                    <option value="http">http</option>
+                    <option value="https">https</option>
+                  </select>
+                  ://
+                  <input type="text" class="form-control" style="width:80px" id="siteLog" placeholder="logp">
+                  .
+                  <select id="siteDomain" name="siteDomain" class="form-control">
+                    <option value="xiti">xiti.com</option>
+                    <option value="atihost">ati-host.net</option>
+                  </select>
+                  /
+                   <select id="siteGo" name="siteGo" class="form-control">
+                    <option value="go">go.url</option>
+                    <option value="gopc">gopc.url</option>
+                  </select>
+                  ?xts=
+                  <input type="text" class="form-control" id="siteNumber" style="width:80px" placeholder="123456">
+              </div>
+          </div>
+      </div>
+        <!-- Param A: Campaign type -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="ParamA">Mail Campaign Type</label>
+          <div class="col-md-6">
+            <select id="ParamA" name="ParamA" class="form-control">
+              <option value="erec">EREC</option>
+              <option value="epr">EPR</option>
+              <option value="es">ES</option>
+            </select>
+          </div>
+        </div>
+        <!-- Param B: Campaign ID -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="ParamB">Campaign ID</label>
+          <div class="col-md-6">
+            <input id="ParamB" name="ParamB" type="text" placeholder="1" class="form-control input-md" required="" />
+            <span class="help-block">Use your unique numerical campaign ID</span>
+          </div>
+        </div>
+        <!-- Param C: Emailing (multiple) -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="ParamC">Emailing(s)</label>
+          <div class="col-md-6">
+            <textarea class="form-control" id="ParamC" name="ParamC">[Emailing_1]
+[Emailing_2]</textarea>
+            <span class="help-block">Enter email label between []. You can also apply an ID before the []. One per line.</span>
+          </div>
+        </div>
+        <!-- Param D: Email date -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="ParamD">Email Date</label>
+          <div class="col-md-6">
+            <input id="ParamD" name="ParamD" type="text" placeholder="YYYYMMDD" class="form-control input-md" />
+            <span class="help-block">Enter the date of sending under the required format.</span>
+          </div>
+        </div>
+        <!-- Param E: Email links (multiple) -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="ParamE">Link label(s)</label>
+          <div class="col-md-6">
+            <textarea class="form-control" id="ParamE" name="ParamE">[Link_1]|http://url-link-one.com
+[Link_2]|http://url-link-two.com
+[Link_3]|http://url-link-three.com</textarea>
+            <span class="help-block">Enter email link label and URL, separated with a |. One per line.</span>
+          </div>
+        </div>
+        <!-- Param F: CRM ID -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="ParamF">CRM ID</label>
+          <div class="col-md-6">
+            <input id="ParamF" name="ParamF" type="text" placeholder="1234@1" class="form-control input-md" />
+            <span class="help-block">Insert a CRM variable providing the contact ID and it's assigned list. The format must be an integer followed by the @ symbol and other integer as displayed above.</span>
+          </div>
+        </div>
+        <!-- Param G: Email date & time -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="ParamG">Email Date and Time</label>
+          <div class="col-md-6">
+            <input id="ParamG" name="ParamG" type="text" placeholder="YYYYMMDDHHMMSS" class="form-control input-md" />
+            <span class="help-block">Enter Date and Time of sending under the required format.</span>
+          </div>
+        </div>
+      </fieldset>
+      <a onclick="generateLinks()" class="btn btn-block btn-lg btn-success">Generate <span class="glyphicon glyphicon-random"></span></a>
+    </form>
+    
+    <div id="result"></div>
+  </body>
+
+</html>
